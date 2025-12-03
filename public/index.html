@@ -9,11 +9,188 @@
   <title>Tartarugas Marinhas e Canudinhos — Mar Profundo</title>
   <meta name="description" content="Projeto sobre tartarugas marinhas e o impacto dos canudinhos plásticos na vida marinha, com curiosidades, fatos científicos e recursos interativos." />
 
+  <!-- Tema visual específico deste projeto -->
+  <style>
+    body.tema-tartarugas-canudinhos {
+      /* Mantém o gradiente base e adiciona textura temática de tartaruga */
+     background:
+  radial-gradient(900px 600px at 80% 0%, rgba(30,193,255,0.25), transparent 60%),
+  radial-gradient(900px 600px at 0% 100%, rgba(0,224,199,0.22), transparent 60%),
+    }
+
+    .tema-tartarugas-canudinhos .hero {
+      position: relative;
+      padding: 3.2rem 0 2.4rem;
+      gap: 2.4rem;
+    }
+
+    .tema-tartarugas-canudinhos .hero::before {
+      content: "";
+      position: absolute;
+      inset: -1rem;
+      background: radial-gradient(circle at top left, rgba(30,193,255,0.25), transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .tema-tartarugas-canudinhos .hero-card {
+      background: linear-gradient(145deg, rgba(15, 36, 54, 0.96), rgba(3, 77, 102, 0.96));
+      border-radius: 1.4rem;
+      border: 1px solid rgba(30,193,255,0.4);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(0, 224, 199, 0.35);
+      padding: 1.6rem 1.6rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tema-tartarugas-canudinhos .hero-card::after {
+      content: "❌ 🥤";
+      position: absolute;
+      right: 1.4rem;
+      bottom: 1rem;
+      font-size: 2rem;
+      opacity: 0.12;
+      transform: rotate(-10deg);
+    }
+
+    .tema-tartarugas-canudinhos .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0, 224, 199, 0.08);
+      border: 1px solid rgba(0, 224, 199, 0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e8f7ff;
+      margin-bottom: 0.6rem;
+    }
+
+    .tema-tartarugas-canudinhos .hero-badge span {
+      font-size: 1rem;
+    }
+
+    .tema-tartarugas-canudinhos #titulo-hero {
+      margin: 0.4rem 0 0.3rem;
+    }
+
+    .tema-tartarugas-canudinhos .hero h2 {
+      color: #b9f5ff;
+    }
+
+    .tema-tartarugas-canudinhos .hero p {
+      max-width: 36rem;
+    }
+
+    .tema-tartarugas-canudinhos .hero .imgwrap {
+      border-radius: 1.4rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 32px rgba(30, 193, 255, 0.6);
+      border: 2px solid rgba(0, 224, 199, 0.7);
+      isolation: isolate;
+    }
+
+    .tema-tartarugas-canudinhos .hero .imgwrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.2), transparent 60%);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .tema-tartarugas-canudinhos .hero .imgwrap::after {
+      content: "🐢";
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.7rem;
+      font-size: 1.6rem;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    /* Ícone de curiosidades com tartaruga + onda */
+    .tema-tartarugas-canudinhos .facts-list li::before {
+      content: "🐢";
+    }
+
+    /* Cards com borda glow verde/azul */
+    .tema-tartarugas-canudinhos .card {
+      border: 1px solid rgba(0, 224, 199, 0.5);
+      background: radial-gradient(circle at top, rgba(0, 224, 199, 0.1), var(--card));
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.6),
+        0 0 18px rgba(0, 224, 199, 0.35);
+    }
+
+    /* Galeria com glow */
+    .tema-tartarugas-canudinhos .gallery figure {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(30, 193, 255, 0.5);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.7),
+        0 0 24px rgba(30, 193, 255, 0.45);
+      position: relative;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .tema-tartarugas-canudinhos .gallery figure::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 55%);
+      opacity: 0.7;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .tema-tartarugas-canudinhos .gallery figure:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.85),
+        0 0 30px rgba(0, 224, 199, 0.55);
+    }
+
+    .tema-tartarugas-canudinhos figure img {
+      height: 190px;
+    }
+
+    .tema-tartarugas-canudinhos figure figcaption {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* FAQ com borda mais marcada */
+    .tema-tartarugas-canudinhos details {
+      border: 1px solid rgba(30, 193, 255, 0.45);
+    }
+
+    /* Chat header com linha temática */
+    .tema-tartarugas-canudinhos .chat-header {
+      background: linear-gradient(90deg, rgba(0,224,199,0.15), transparent);
+      border-bottom-color: rgba(30,193,255,0.4);
+    }
+
+    /* CTA com borda neon */
+    .tema-tartarugas-canudinhos .cta {
+      border-color: rgba(0,224,199,0.6);
+      box-shadow: 0 0 18px rgba(0,224,199,0.4);
+    }
+  </style>
+
   <!-- Bibliotecas -->
   <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
 </head>
-<body>
+<body class="tema-tartarugas-canudinhos">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header role="banner">
@@ -43,17 +220,17 @@
   <main id="conteudo" class="wrap" role="main">
     <!-- HERO -->
     <section class="hero fade-in" aria-labelledby="titulo-hero">
-      <div>
+      <div class="hero-card">
         <p class="hero-badge">
-          🐢 Projeto
-          <strong style="margin-left: .35rem;">Tartarugas x Canudinhos</strong>
+          <span>🐢</span>
+          Tartarugas x Canudinhos
         </p>
         <h1 id="titulo-hero">Tartarugas Marinhas e Canudinhos</h1>
         <h2>Tartarugas são legais, canudinhos não.</h2>
 
         <p>
-          Nosso site é focado na conscientização sobre a vida marinha das tartarugas
-          e os impactos dos canudinhos plásticos nos oceanos.
+          Este projeto fala sobre a vida das tartarugas marinhas e mostra como algo simples,
+          como um canudinho plástico, pode causar um grande problema no oceano.
         </p>
 
         <div class="actions" role="group" aria-label="Ações principais">
@@ -154,7 +331,7 @@
 
       <div class="gallery" role="list">
         <figure role="listitem">
-          <img src="https://www.fishtv.com/uploads/noticias/facebook/1200x630/imagem-01-1200x630-8.jpg" alt="Tartaruga marinha nadando em meio a peixes" />
+          <img src="https://www.fishtv.com/uploads/noticias/facebook/1200x630/imagem-01-1200x630-8.jpg" alt="Tartarugas marinhas nadando próximas à superfície" />
           <figcaption>Tartarugas marinhas em seu habitat natural.</figcaption>
         </figure>
         <figure role="listitem">
@@ -277,7 +454,7 @@
 
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 
-  <!-- Dialogflow com espaço pra ícone temático (tartaruga + canudinho) -->
+  <!-- Dialogflow com ícone temático (tartaruga + canudinho) -->
   <df-messenger
     intent="WELCOME"
     chat-title="ECOBOT"
