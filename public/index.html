@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+
+  <!-- SEO básico -->
+  <title>Tartarugas Marinhas e Canudinhos — Mar Profundo</title>
+  <meta name="description" content="Projeto sobre tartarugas marinhas e o impacto dos canudinhos plásticos na vida marinha, com curiosidades, fatos científicos e recursos interativos." />
+
+  <!-- Bibliotecas -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header role="banner">
+    <div class="wrap">
+      <nav aria-label="Navegação principal">
+        <div class="brand" aria-label="Marca da página">
+          <span aria-hidden="true"></span>
+          <strong>Mar Profundo</strong>
+        </div>
+
+        <div class="nav-links" role="navigation">
+          <a href="#curiosidades">Curiosidades</a>
+          <a href="#fatos">Fatos</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <div class="controls">
+          <button id="toggleTheme" class="btn ghost" aria-pressed="false" aria-label="Alternar modo claro e escuro">🌙</button>
+          <!-- Mantido pro JS, mas escondido porque o Dialogflow já tem botão próprio -->
+          <button id="btnAbrirChatbot" class="btn" aria-label="Abrir chatbot" style="display:none;">Abrir Chatbot</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="wrap" role="main">
+    <!-- HERO -->
+    <section class="hero fade-in" aria-labelledby="titulo-hero">
+      <div>
+        <p class="hero-badge">
+          🐢 Projeto
+          <strong style="margin-left: .35rem;">Tartarugas x Canudinhos</strong>
+        </p>
+        <h1 id="titulo-hero">Tartarugas Marinhas e Canudinhos</h1>
+        <h2>Tartarugas são legais, canudinhos não.</h2>
+
+        <p>
+          Nosso site é focado na conscientização sobre a vida marinha das tartarugas
+          e os impactos dos canudinhos plásticos nos oceanos.
+        </p>
+
+        <div class="actions" role="group" aria-label="Ações principais">
+          <!-- Botão obrigatório: Reconhecimento Facial -->
+          <button id="abrirIA" class="btn" aria-label="Iniciar reconhecimento facial">
+            Reconhecimento Facial
+          </button>
+
+          <!-- Mantido pro JS, mas escondido visualmente -->
+          <button id="btnAbrirChatbotHero" class="btn ghost" aria-label="Abrir chatbot" style="display:none;">
+            Abrir Chatbot
+          </button>
+        </div>
+      </div>
+
+      <div class="imgwrap" aria-hidden="false">
+        <img
+          src="https://super.abril.com.br/wp-content/uploads/2017/09/populac3a7c3a3o-de-tartarugas-marinhas-voltou-a-aumentar-em-todo-o-mundo1.png?crop=1&resize=1212,909"
+          alt="Grupo de tartarugas marinhas nadando em um mar claro"
+        />
+      </div>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section id="curiosidades" aria-labelledby="titulo-curiosidades" class="fade-in">
+      <header>
+        <h2 id="titulo-curiosidades">Curiosidades</h2>
+        <p>Descobertas rápidas sobre tartarugas marinhas e sua vida no fundo do mar.</p>
+      </header>
+      <ul class="facts-list" role="list">
+        <li>
+          <div class="text">
+            Muitas tartarugas marinhas vivem entre 50 e 70 anos, e algumas espécies podem ultrapassar os 100 anos.
+          </div>
+        </li>
+        <li>
+          <div class="text">
+            A carapaça das tartarugas faz parte do esqueleto: ela é formada por ossos fundidos que protegem os órgãos internos.
+          </div>
+        </li>
+        <li>
+          <div class="text">
+            Algumas espécies comem águas-vivas, que são uma parte importante da dieta de certas tartarugas marinhas.
+          </div>
+        </li>
+        <li>
+          <div class="text">
+            Tartarugas não têm dentes: no lugar deles, possuem um bico córneo feito de queratina.
+          </div>
+        </li>
+        <li>
+          <div class="text">
+            A quantidade de ovos em cada ninho varia conforme a espécie, mas uma única fêmea pode colocar dezenas de ovos por desova.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FATOS/CIÊNCIA -->
+    <section id="fatos" aria-labelledby="titulo-fatos" class="fade-in">
+      <header>
+        <h2 id="titulo-fatos">Fatos e Ciência</h2>
+        <p>Três pontos científicos para entender melhor as tartarugas marinhas.</p>
+      </header>
+      <div class="cards" role="list">
+        <article class="card" aria-label="Fato científico 1" role="listitem">
+          <h3>Tartarugas são répteis antigos</h3>
+          <p>
+            Elas são répteis que existem desde a época dos dinossauros e possuem um casco ósseo
+            que faz parte do esqueleto e protege seus órgãos.
+          </p>
+        </article>
+
+        <article class="card" aria-label="Fato científico 2" role="listitem">
+          <h3>Casco como proteção</h3>
+          <p>
+            O casco é formado por 50 a 60 ossos fundidos, incluindo costelas e coluna vertebral.
+            Ele funciona como um escudo natural contra predadores e impactos.
+          </p>
+        </article>
+
+        <article class="card" aria-label="Fato científico 3" role="listitem">
+          <h3>Longevidade impressionante</h3>
+          <p>
+            A longa expectativa de vida está ligada ao metabolismo mais lento e à capacidade de se adaptar
+            a diferentes condições ambientais, desde recifes de corais até águas abertas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" aria-labelledby="titulo-galeria" class="fade-in">
+      <header>
+        <h2 id="titulo-galeria">Galeria</h2>
+        <p>Imagens do oceano e das tartarugas marinhas para inspirar a preservação.</p>
+      </header>
+
+      <div class="gallery" role="list">
+        <figure role="listitem">
+          <img src="https://www.fishtv.com/uploads/noticias/facebook/1200x630/imagem-01-1200x630-8.jpg" alt="Tartaruga marinha nadando em meio a peixes" />
+          <figcaption>Tartarugas marinhas em seu habitat natural.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="https://wallpapers.com/images/hd/turtle-pictures-ljd1js8d66i33577.jpg" alt="Tartaruga marinha vista de perto, com casco avermelhado" />
+          <figcaption>Tartaruga com casco em tons avermelhados.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="https://portaledicase.com/wp-content/uploads/2024/07/tartaruga-marinha-1024x683.jpg" alt="Tartaruga marinha nadando em mar claro" />
+          <figcaption>Tartaruga marinha em um mar cristalino.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-the-image-shows-a-turtle-swimming-in-the-sea-image_2886780.jpg" alt="Tartaruga com casco escuro nadando em águas profundas" />
+          <figcaption>Tartaruga com casco escuro em águas profundas.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="https://s2.glbimg.com/yxy0GdzU2PcetgN4qd-IaYQgbJA=/e.glbimg.com/og/ed/f/original/2021/08/02/chelonia_mydas_baby_sea_turtle.jpg" alt="Filhote de tartaruga marinha caminhando na areia em direção ao mar" />
+          <figcaption>Filhote de tartaruga seguindo para o mar.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="https://www.gov.br/icmbio/pt-br/assuntos/centros-de-pesquisa/tartarugas-marinhas-e-biodiversidade-marinha-do-leste/Arquivos%20do%20Site/imagens%20e%20videos/009.jpg" alt="Tartaruga marinha próxima à superfície do mar" />
+          <figcaption>Tartaruga próxima à superfície do oceano.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="titulo-faq" class="fade-in">
+      <header>
+        <h2 id="titulo-faq">Perguntas frequentes</h2>
+        <p>Perguntas frequentes sobre as tartarugas e os impactos dos canudinhos.</p>
+      </header>
+
+      <div class="faq">
+        <details>
+          <summary>Onde vivem as tartarugas?</summary>
+          <p>
+            Elas podem viver em ambientes terrestres, de água doce ou marinhos, dependendo da espécie.
+            As tartarugas marinhas passam quase toda a vida no oceano.
+          </p>
+        </details>
+        <details>
+          <summary>O que as tartarugas comem?</summary>
+          <p>
+            A alimentação varia entre as espécies: algumas comem plantas aquáticas, outras peixes,
+            águas-vivas, algas ou pequenos invertebrados.
+          </p>
+        </details>
+        <details>
+          <summary>Qual é a expectativa de vida de uma tartaruga?</summary>
+          <p>
+            Algumas tartarugas podem viver 100 anos ou mais. Entre as marinhas, muitas ultrapassam as
+            cinco décadas de vida.
+          </p>
+        </details>
+        <details>
+          <summary>Como as tartarugas se defendem?</summary>
+          <p>
+            Elas usam o casco como principal proteção, recolhendo cabeça e membros quando se sentem ameaçadas.
+          </p>
+        </details>
+        <details>
+          <summary>Por que as tartarugas são ameaçadas de extinção?</summary>
+          <p>
+            Destruição de habitat, caça ilegal, captura acidental em redes de pesca e a poluição marinha
+            (incluindo canudinhos e outros plásticos) são grandes ameaças para as tartarugas.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final" aria-labelledby="titulo-cta" class="fade-in">
+      <header>
+        <h2 id="titulo-cta">Continue explorando</h2>
+        <p>Escolha um caminho para aprender ainda mais e ajudar as tartarugas.</p>
+      </header>
+      <div class="cta" role="group" aria-label="Call to Action">
+        <a href="#fatos">Aprender mais</a>
+        <a href="#galeria">Ver imagens</a>
+        <a href="#creditos">Baixar material &amp; fontes</a>
+      </div>
+    </section>
+
+    <!-- CRÉDITOS/FONTES -->
+    <section id="creditos" aria-labelledby="titulo-creditos" class="fade-in">
+      <header>
+        <h2 id="titulo-creditos">Créditos e Fontes</h2>
+        <p>Referências utilizadas neste projeto.</p>
+      </header>
+      <article>
+        <p>[[FONTES_REFERENCIAS]]</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Painel do Chatbot (Aside fixo) -->
+  <aside id="chatPane" role="complementary" aria-label="Painel do chatbot" aria-hidden="true">
+    <div class="chat-header">
+      <strong>Chatbot Demonstrativo</strong>
+      <div>
+        <button id="closeChat" class="icon-btn" aria-label="Fechar chatbot">✖</button>
+      </div>
+    </div>
+    <div class="chat-body" id="chatHistory" aria-live="polite">
+      <div class="msg bot">Olá! Sou um protótipo de chatbot. Como posso ajudar sobre tartarugas e canudinhos?</div>
+      <div class="msg user">Quero saber curiosidades rápidas.</div>
+      <div class="msg bot">Veja a seção “Curiosidades” ou pergunte algo específico!</div>
+    </div>
+    <form class="chat-input" id="chatForm" aria-label="Entrada de mensagem do chatbot">
+      <input id="chatText" type="text" name="q" placeholder="Digite sua mensagem..." aria-label="Escreva sua mensagem" />
+      <button class="icon-btn" type="submit" aria-label="Enviar mensagem">➤</button>
+    </form>
+  </aside>
+
+  <footer class="wrap" role="contentinfo">
+    <p>&copy; <span id="ano"></span> | Projeto: Tartarugas Marinhas e Canudinhos — <a href="#topo" id="backToTop">Voltar ao topo</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+  <!-- Dialogflow com espaço pra ícone temático (tartaruga + canudinho) -->
+  <df-messenger
+    intent="WELCOME"
+    chat-title="ECOBOT"
+    agent-id="6c106d6c-eef7-41db-92b4-5bf82848937e"
+    language-code="pt-br"
+    chat-icon="img/tartaruga-canudinho.png">
+  </df-messenger>
+
+  <!-- Modal da câmera -->
+  <div id="cameraModal" class="modal" aria-hidden="true" style="display:none;">
+    <div class="modal-content">
+      <button id="fecharModal" class="botao-fechar" title="Fechar">❌</button>
+      <h2 class="modal-title">Reconhecimento Facial</h2>
+      <div class="video-wrap">
+        <video id="video" autoplay muted playsinline></video>
+      </div>
+      <div class="controls">
+        <button id="tirarFoto" class="botao-foto" title="Tirar foto">📸</button>
+      </div>
+      <p id="modalStatus" class="modal-status">Aguardando...</p>
+      <canvas id="fotoCanvas" style="display:none;"></canvas>
+    </div>
+  </div>
+</body>
+</html>
